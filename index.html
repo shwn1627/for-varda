@@ -110,8 +110,8 @@ img{
 <body>
 
 <!-- MUSIC -->
-<audio id="music" loop>
-  <source src="tum-se-hi.mp3" type="audio/mpeg">
+<audio id="music" loop preloasd= "auto">
+  <source src="songg.mp3" type="audio/mpeg">
 </audio>
 <!-- START -->
 <section id="start" class="fade">
@@ -168,13 +168,17 @@ img{
 
 <script>
 /* START */
-function start(){
+function start()
+{
   document.getElementById("start").classList.add("hidden");
   document.getElementById("msg1").classList.remove("hidden");
-  document.getElementById("music").play();
-  setInterval(createHeart,500);
-}
 
+  const music = document.getElementById("music");
+  music.volume = 0.7;
+  music.play().catch(err => console.log("Audio blocked:", err));
+
+  setInterval(createHeart, 500);
+}
 /* MARATHI PICKUP LINES */
 const marathiLines = [
   "तुझं हसणं म्हणजे माझ्या दिवसाची सुरुवात.",
@@ -232,6 +236,7 @@ function createHeart(){
 
 </body>
 </html>
+
 
 
 
